@@ -1,0 +1,20 @@
+shell@android:/ $ mount                                                        
+rootfs / rootfs ro,relatime 0 0
+tmpfs /dev tmpfs rw,nosuid,relatime,mode=755 0 0
+devpts /dev/pts devpts rw,relatime,mode=600 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+none /acct cgroup rw,relatime,cpuacct 0 0
+tmpfs /mnt/asec tmpfs rw,relatime,mode=755,gid=1000 0 0
+tmpfs /mnt/obb tmpfs rw,relatime,mode=755,gid=1000 0 0
+none /dev/cpuctl cgroup rw,relatime,cpu 0 0
+/dev/block/mmcblk0p12 /system ext4 ro,relatime,user_xattr,barrier=1,data=ordered 0 0
+/dev/block/mmcblk0p13 /data ext4 rw,nosuid,nodev,relatime,user_xattr,barrier=1,data=ordered,noauto_da_alloc 0 0
+/dev/block/mmcblk0p15 /persist ext4 rw,nosuid,nodev,relatime,user_xattr,barrier=1,data=ordered 0 0
+/dev/block/mmcblk0p16 /cache ext4 rw,nosuid,nodev,relatime,user_xattr,barrier=1,data=ordered 0 0
+/dev/block/mmcblk0p17 /tombstones ext4 rw,nosuid,nodev,relatime,user_xattr,barrier=1,data=ordered 0 0
+/dev/block/mmcblk0p1 /firmware vfat ro,relatime,fmask=0000,dmask=0000,allow_utime=0022,codepage=cp437,iocharset=iso8859-1,shortname=lower,errors=remount-ro 0 0
+tmpfs /data/camera_socket tmpfs rw,relatime,mode=775,gid=1000 0 0
+tmpfs /data/secure/data tmpfs rw,nosuid,relatime,mode=755,gid=1000 0 0
+/dev/block/vold/179:14 /mnt/sdcard vfat rw,dirsync,nosuid,nodev,noexec,relatime,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+shell@android:/ $
