@@ -26,6 +26,7 @@ ln -s busybox wget
 ln -s busybox seq
 ln -s busybox sed
 ln -s busybox clear
+ln -s busybox printf
 ./busybox cp -p /system/xbin/* .
 cd -
 

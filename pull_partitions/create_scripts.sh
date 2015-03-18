@@ -35,7 +35,7 @@ do
     
     # do not dump out memory card where we are currently writing to
     if ! [ $i -eq 14 ]; then        
-        echo "dd if=$SOURCE/$DEVICE of=$TARGET/part.$i.$NAME" >> $DDSCRIPT
+        echo "dd if=$SOURCE/$DEVICE of=$TARGET/part.$(printf %02d $i).$NAME" >> $DDSCRIPT
         echo "df $TARGET" >> $DDSCRIPT
         echo "sleep $SLEEPTIME" >> $DDSCRIPT
         echo "adb pull $TARGET/part.$i.$NAME" >> $GETSCRIPT
