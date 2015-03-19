@@ -27,11 +27,13 @@ Temporary root access can be gained via the run_root_shell binary (https://githu
 
 Needed for the scripts to work is a working ADB connection (https://developer.android.com/tools/help/adb.html), so be sure to enable "USB Debugging" on the phone. The scripts are currently written for Linux, but making Windows Batch files out of them should not be a problem. The scripts prefixed with "adb_*" are run locally on the host and call scripts on the target (NEC Terrain) via adb.
 
+UPDATE: some of the scripts were ported to Windows Batch files, so instead of calling "adb_install_bb_su.sh", one would call "adb_install_bb_su.bat". For ADB to work on Windows, special drivers might be required (https://developer.android.com/tools/extras/oem-usb.html). Instead of downloading the whole SDK, one can find the basic tools as well (e.g. http://forum.xda-developers.com/showthread.php?t=2588979). Scripts are untested, feel free to test and improve!
+
 Fastboot existance and access is unknown so far, although there exist some instructions (http://forum.xda-developers.com/android/help/nec-terrain-root-maybe-t2946966).
 
 Since the build.prop setting ro.secure is set to 1, the adbd on the phone will not allow an "adb root" from the host. This can be (temporarily) changed on a phone with temp root via ADBD Insecure (http://forum.xda-developers.com/showthread.php?t=1687590).
 
-To gain temporary root on the phone, just execute the "adb_install.sh" script from the folder "temporary_root"
+To gain temporary root on the phone, just execute the "adb_install_bb_su.sh" script from the folder "temporary_root"
 
 ```
 $ adb devices
@@ -42,7 +44,7 @@ shell@android:/ $ su
 /system/bin/sh: su: not found
 shell@android:/ $ exit
 $ cd temporary_root
-$ ./adb_install.sh
+$ ./adb_install_bb_su.sh
 $ adb shell
 shell@android:/ $ su
 shell@android:/ # exit
@@ -65,14 +67,14 @@ Maybe someone can do some magic and disable the NAND lock or extract the PIN to 
 
 Since removing unwanted applications is currently not possible, one can at least disable them. This script is inspired by a couple of scripts provided in one of the mentioned threads (http://forum.xda-developers.com/showpost.php?p=58675054&postcount=17) but it does not install XPosed framework or change other settings. Some of what the script does could also be done manually in the "Apps" menu by clicking on each app and selecting "Disable".
 
- Root is needed (so run "adb_install.sh" from "temporary_root" beforehand) for the commands to switch the state to disabled, without root, the packages would just be killed. The changes (aka applications missing from menu) should be effective after a reboot.
+ Root is needed (so run "adb_install_bb_su.sh" from "temporary_root" beforehand) for the commands to switch the state to disabled, without root, the packages would just be killed. The changes (aka applications missing from menu) should be effective after a reboot.
 
 ```
 $ cd disable_apps
 $ ./adb_disable_apps.sh
 ```
 
-The "packages.list" gives an overview of installed packages, adding package names (without the package: prefix as seen from `adb shell "pm list packages"`) to "packages-to-disable.list" will disable them with the next run of "adb_disable_apps.sh". If you remove important packages, the phone might not be able to start and fall into a boot loop. Use `adb lolcat` to see what might be the issue. If you must, you can always wipe cache/factory reset via the recovery.
+The "packages.list" gives an overview of installed packages, adding package names (without the package: prefix as seen from `adb shell "pm list packages"`) to "packages-to-disable.list" will disable them with the next run of "adb_disable_apps.sh". The "packages_apk.list" file (generated via `adb shell "pm list packages -f"`) also gives the APK name for the packages, for better orientation. If you remove important packages, the phone might not be able to start and fall into a boot loop. Use `adb lolcat` to see what might be the issue. If you must, you can always wipe cache/factory reset via the recovery.
 
 Links on Bloatware and apps to remove:
 * http://blog.burrowsapps.com/2014/03/what-android-apps-are-safe-to-remove.html
