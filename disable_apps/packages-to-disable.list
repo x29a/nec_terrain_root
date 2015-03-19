@@ -4,7 +4,6 @@ com.amazon.kindle
 com.android.DeviceHelp
 com.android.backupconfirm
 com.android.browser
-com.android.defcontainer
 com.android.deskclock
 com.android.facelock
 com.android.magicsmoke
@@ -46,16 +45,12 @@ com.google.android.marvin.talkback
 com.google.android.music
 com.google.android.partnersetup
 com.google.android.syncadapters.bookmarks
-com.google.android.syncadapters.calendar
-com.google.android.syncadapters.contacts
 com.google.android.talk
 com.google.android.videos
 com.google.android.voicesearch
 com.google.android.youtube
 com.matchboxmobile.wisp
-com.moxier.eas
 com.mtag.att.codescanner
-com.qo.android.sp.oem
 com.synchronoss.dcs.att.r2g
 com.telenav.app.android.cingular
 com.wildtangent.android
@@ -63,5 +58,4 @@ com.yellowpages.android.ypmobile
 de.robv.android.xposed.installer
 eu.chainfire.adbd
 eu.chainfire.supersu
-org.simalliance.openmobileapi.service
 search.borqssearch
