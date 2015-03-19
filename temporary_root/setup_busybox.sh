@@ -4,6 +4,7 @@ cd /data/local/tmp
 
 mkdir .system
 mkdir .system/xbin
+mkdir .system/bin
 
 mv busybox .system/xbin
 chown 0.0 .system/xbin/busybox
@@ -32,3 +33,5 @@ cd -
 
 mount -o bind /data/local/tmp/.system/xbin /system/xbin
 mount -o suid -o remount /system/xbin
+
+#/system/xbin/su --install
