@@ -21,6 +21,23 @@ The recovery (e3) can be accessed via the following procedure:
 
 The menu entries "repair software by sdcard" and "maintenance" are locked via an unknown code, consisting of only numbers and possible 10 digits long.
 
+The code for maintenance has been found, it is based on the IMEI of the phone, which can be found under the battery. From the IMEI, the code can be constructed by combining the digits in the following way:
+
+* 2nd digit
+* last three digits
+* 3rd and 4th digit
+* 01
+
+so if the IMEI was the following 
+
+0489000000567 
+
+(not a real IMEI), the code would be
+
+45678901
+
+Though, nothing useful was found with the maintance mode yet.
+
 There is an option in the Android menu called "AT&T Software Update" but all phones seem to be delivered with the update already installed (https://www.att.com/esupport/article.jsp?sid=KB421350).
 
 Temporary root access can be gained via the run_root_shell binary (https://github.com/android-rooting-tools/android_run_root_shell).
