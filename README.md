@@ -80,7 +80,7 @@ $ du -sh images/
 2,8G    images/
 ```
 
-Maybe someone can do some magic and disable the NAND lock or extract the PIN to the recovery maintenance?
+Maybe someone can do some magic and disable the NAND lock or extract information on how the update.dat file should look?
 
 Since removing unwanted applications is currently not possible, one can at least disable them. This script is inspired by a couple of scripts provided in one of the mentioned threads (http://forum.xda-developers.com/showpost.php?p=58675054&postcount=17) but it does not install XPosed framework or change other settings. Some of what the script does could also be done manually in the "Apps" menu by clicking on each app and selecting "Disable".
 
