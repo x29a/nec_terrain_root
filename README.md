@@ -40,6 +40,10 @@ Though, nothing useful was found with the maintance mode yet.
 
 There is an option in the Android menu called "AT&T Software Update" but all phones seem to be delivered with the update already installed (https://www.att.com/esupport/article.jsp?sid=KB421350).
 
+The "Check for Updates" option establishes a HTTPS connection to 166.216.149.131.
+
+The "Software Update by SD card" option expects an update.dat file on the (real) SD card and reboots to recovery, very similar to the "repair software by sdcard" option directly available in recovery.
+
 Temporary root access can be gained via the run_root_shell binary (https://github.com/android-rooting-tools/android_run_root_shell).
 
 Needed for the scripts to work is a working ADB connection (https://developer.android.com/tools/help/adb.html), so be sure to enable "USB Debugging" on the phone. The scripts are currently written for Linux, but making Windows Batch files out of them should not be a problem. The scripts prefixed with "adb_*" are run locally on the host and call scripts on the target (NEC Terrain) via adb.
