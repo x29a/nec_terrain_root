@@ -33,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setMovementMethod(new ScrollingMovementMethod());
 
-        startRooting(findViewById(android.R.id.content));
+        //startRooting(findViewById(android.R.id.content));
     }
 
     public void startRooting(View view) {
