@@ -29,7 +29,6 @@ ln -s busybox sed
 ln -s busybox clear
 ln -s busybox printf
 ./busybox cp -p /system/xbin/* .
-cd -
 
 mount -o bind /data/local/tmp/.system/xbin /system/xbin
 mount -o suid -o remount /system/xbin
