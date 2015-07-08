@@ -76,7 +76,7 @@ Since system images are pulled, this step can take a while.
 A small hole in the partition layout is used to remap the recovery partition to a modified boot image.
 
 ### 5. Write modified boot
-The modified boot image is written to the remapped location
+The modified boot image is written to the remapped location.
 
 ## Rooting
 After all steps have been performed, the phone has to be unplugged from USB, then turned off. Now press the volume down button (as if entering recovery) until you see the AT&T logo. Now the custom boot should fire up which enables read/write access to /system.
