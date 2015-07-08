@@ -1,3 +1,8 @@
+UPDATE: root is achieved! See subfolder "terroot" and http://forum.xda-developers.com/showpost.php?p=61542922&postcount=186. After this method has been tested and verified, zhe next steps are: fully open recovery, optimized kernel, nice ROM.
+
+----------------------------------------------------------------------------------------------------
+
+
 This is a repo for collecting information on attempts to gain permanent root on the NEC Terrain mobile phone.
 
 Feel free to send me pull-requests, direct messages or write me over on xda-developers! Any help appreciated!
