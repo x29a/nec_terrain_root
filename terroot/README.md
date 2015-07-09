@@ -5,7 +5,7 @@ This app is provided as a demo for advanced users. No responsibility is taken, i
 
 /!\ YOU HAVE BEEN WARNED /!\
 
-Also, this app relies on a special partition layout for step 4 and 5 so be sure your /data/local/tmp/partition_layout.txt looks similar to this
+Also, this app relies on a special partition layout for step 4 and 5 so be sure your /data/local/tmp/partition_layout.txt looks EXACTLY like this
 
 ```
 Model: MMC M8G2FB (sd/mmc)
