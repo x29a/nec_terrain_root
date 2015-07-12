@@ -13,7 +13,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1.Assets"
+            android:text="1.ASSETS"
             android:id="@+id/button"
             android:clickable="true"
             android:onClick="copyAssets"
@@ -24,7 +24,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2.Backup"
+            android:text="2.BACKUP"
             android:id="@+id/button3"
             android:onClick="backup"
             android:layout_below="@+id/button"
@@ -34,7 +34,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4.MOD"
+            android:text="4.MODIFY"
             android:id="@+id/button5"
             android:onClick="modBoot"
             android:layout_gravity="center_vertical"
@@ -85,7 +85,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5.Reboot"
+        android:text="5.REBOOT"
         android:id="@+id/button2"
         android:onClick="reboot"
         android:layout_below="@+id/button5"
