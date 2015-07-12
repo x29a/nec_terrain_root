@@ -5,7 +5,7 @@ This app is provided as a demo for advanced users. No responsibility is taken, i
 
 /!\ YOU HAVE BEEN WARNED /!\
 
-Also, this app relies on a special partition layout for step 4 and 5 so be sure your /data/local/tmp/backup/TS_partition_layout.txt (TS being a timestamp from when the backup was taken) looks EXACTLY like this
+Also, this app relies on a special partition layout for step 4 and 5 so be sure your /data/local/tmp/backup/TIMESTAMP_partition_layout.txt (TIMESTAMP being a timestamp from when the backup was taken) looks EXACTLY like this
 
 ```
 Model: MMC M8G2FB (sd/mmc)
@@ -70,7 +70,11 @@ The modified boot image is written to the remapped location.
 ## Rooting
 After all steps have been performed, the phone has to be unplugged from USB, then turned off. Now press the volume down button (as if entering recovery) until you see the AT&T logo. Now the custom boot should fire up which enables read/write access to /system.
 
-In order to have permanent root, this would be a good time to install a current version of SuperSU and ADBD Insecure.
+In order to have permanent root, one needs to install the "su" binary along with some management software like superuser or SuperSU. 
+
+Terroot features a basic version, when booted into readwrite /system, performing step 6 will install su and superuser.apk.
+
+This would be a good time to install a current version of SuperSU and ADBD Insecure from the PlayStore.
 
 Also, removing bloatware is now possible.
 
