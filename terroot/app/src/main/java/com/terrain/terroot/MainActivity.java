@@ -111,6 +111,13 @@ public class MainActivity extends ActionBarActivity {
         log("modBoot finished");
     }
 
+    public void su(View view)
+    {
+        log("su start");
+        executeCommand("preparesu.sh");
+        log("su finished");
+    }
+
     public void executeCommand(String commandName)
     {
         try

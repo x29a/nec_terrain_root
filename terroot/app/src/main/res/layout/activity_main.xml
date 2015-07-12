@@ -19,7 +19,9 @@
             android:onClick="copyAssets"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/space"
+        android:layout_alignEnd="@+id/space" />
 
     <Button
             android:layout_width="wrap_content"
@@ -29,7 +31,9 @@
             android:onClick="backup"
             android:layout_below="@+id/button"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button" />
 
     <Button
             android:layout_width="wrap_content"
@@ -40,7 +44,9 @@
             android:layout_gravity="center_vertical"
         android:layout_below="@+id/button4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView" />
 
     <Button
             android:layout_width="wrap_content"
@@ -50,9 +56,7 @@
             android:onClick="modGPT"
             android:layout_below="@+id/button3"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false"
-            android:layout_alignRight="@+id/button5"
-            android:layout_alignEnd="@+id/button5"/>
+            android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="258dp"
@@ -67,19 +71,18 @@
         android:textIsSelectable="true"
         android:cursorVisible="false"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/space"
+        android:layout_toEndOf="@+id/button"
         android:layout_gravity="right"
         android:layout_row="2"
         android:layout_column="1"
-        android:layout_toRightOf="@+id/space" />
+        android:layout_toRightOf="@+id/button" />
 
     <Space
         android:layout_width="20px"
         android:layout_height="20px"
-        android:layout_below="@+id/button5"
         android:layout_toRightOf="@+id/button4"
-        android:layout_toEndOf="@+id/button4"
-        android:id="@+id/space" />
+        android:id="@+id/space"
+        android:layout_below="@+id/button5" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -89,6 +92,20 @@
         android:id="@+id/button2"
         android:onClick="reboot"
         android:layout_below="@+id/button5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6.SU"
+        android:id="@+id/button6"
+        android:onClick="su"
+        android:layout_below="@+id/button2"
+        android:layout_toLeftOf="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
