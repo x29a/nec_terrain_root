@@ -68,12 +68,12 @@ and then executing
 su
 
 ### 3. Backup
-In order to have the best chances to fix the system in case something goes wrong, a couple of files are backed up (e.g. the original GPT table and boot/recovery images). The data can be pulled via adb from /data/local/tmp.
+In order to have the best chances to fix the system in case something goes wrong, a couple of files are backed up (e.g. the original GPT table and boot/recovery images). The data can be pulled via adb from /data/local/tmp/backup/.
 
-Since system images are pulled, this step can take a while.
+Since system images are pulled, this step can take a while, the GUI might hang.
 
 ### 4. Modify partition layout GPT
-A small hole in the partition layout is used to remap the recovery partition to a modified boot image.
+A small hole in the partition layout is used to remap the recovery partition to a modified boot image, which is written in the last step.
 
 ### 5. Write modified boot
 The modified boot image is written to the remapped location.
@@ -87,7 +87,12 @@ Also, removing bloatware is now possible.
 
 To go back to the stock kernel (without r/w on /system), simply reboot the phone.
 
-## Troubleshooting
-If something goes wrong, you should be always able to normally boot the phone, temporary root it and look at logfiles and the contents of /data/local/tmp. Also, restoring the original GPT is possible as root via
+## Restoring Recovery
+Nothing got deleted, so in order to get back into recovery when pushing the volume down button on boot, only the partition table has to be restored, which can be done as root via
 
-/system/xbin/sgdisk --load-backup=/data/local/tmp/mmcblk0.gpt /dev/block/mmcblk0
+/system/xbin/sgdisk --load-backup=/data/local/backup/TIMESTAMP_tmp/mmcblk0.gpt /dev/block/mmcblk0
+
+Note: the timestamp should be from the original backup made when pushing "backup" in the app for the first time.
+
+## Troubleshooting
+If something goes wrong, you should be always able to normally boot the phone, temporary root it and look at logfiles and the contents of /data/local/tmp. If in doubt, reboot the phone and try the whole procedure again.
