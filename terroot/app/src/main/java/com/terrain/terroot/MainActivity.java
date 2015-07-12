@@ -50,6 +50,9 @@ public class MainActivity extends ActionBarActivity {
             e.printStackTrace();
         }
         log("copy finished");
+        log("deploy assets start");
+        executeCommand("deploy.sh");
+        log("deploy assets finished");
     }
 
     private static void copyAssetFile(String filename, Context context) {
@@ -80,18 +83,18 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void temporaryRoot(View view)
-    {
-        log("temporary root start");
-        executeCommand("tempRoot.sh");
-        log("temporary root finished");
-    }
-
     public void backup(View view)
     {
         log("backup start");
         executeCommand("backup.sh");
         log("backup finished");
+    }
+
+    public void reboot(View view)
+    {
+        log("reboot start");
+        executeCommand("reboot.sh");
+        log("reboot finished");
     }
 
     public void modGPT(View view)
@@ -131,7 +134,7 @@ public class MainActivity extends ActionBarActivity {
             log(output.toString());
         }
         catch (IOException e) {
-            throw new RuntimeException(e);
+            log("error: " + commandName);
         }
         catch (InterruptedException e) {
             throw new RuntimeException(e);
