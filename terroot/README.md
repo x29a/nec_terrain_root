@@ -1,11 +1,11 @@
-This app contains all the tools needed for a permanent root and read/write access to /system.
+This app contains all the tools needed to mount /system rw, which is a precondition for a permanent root.
 
 ## DISCLAIMER 
 This app is provided as a demo for advanced users. No responsibility is taken, it might turn your phone into a brick. 
 
 /!\ YOU HAVE BEEN WARNED /!\
 
-Also, this app relies on a special partition layout for step 4 and 5 so be sure your /data/local/tmp/partition_layout.txt looks EXACTLY like this
+Also, this app relies on a special partition layout for step 4 and 5 so be sure your /data/local/tmp/backup/TS_partition_layout.txt (TS being a timestamp from when the backup was taken) looks EXACTLY like this
 
 ```
 Model: MMC M8G2FB (sd/mmc)
@@ -54,28 +54,17 @@ The .apk needs to be installed on the phone. This can be achieved in multiple wa
 
 ## Usage steps
 ### 1. Copy assets
-First, the used binaries and images need to be copied to the right places on the phone. Since the app contains a full modified boot image, it is so huge.
+First, the used binaries and images need to be copied to the right places on the phone. Since the app contains a full modified boot image, it is so huge and might take a little while.
 
-### 2. Temporary root
-A glitch in the kernel enables to gain temporary root rights. With those, a small busybox environment is set up and the needed tools are placed in the PATH environment.
-
-Temporary means, that this environment is lost after a reboot. As long as no reboot was performed, one can get to an elevated shell via
-
-adb shell
-
-and then executing
-
-su
-
-### 3. Backup
+### 2. Backup
 In order to have the best chances to fix the system in case something goes wrong, a couple of files are backed up (e.g. the original GPT table and boot/recovery images). The data can be pulled via adb from /data/local/tmp/backup/.
 
 Since system images are pulled, this step can take a while, the GUI might hang.
 
-### 4. Modify partition layout GPT
+### 3. Modify partition layout GPT
 A small hole in the partition layout is used to remap the recovery partition to a modified boot image, which is written in the last step.
 
-### 5. Write modified boot
+### 4. Write modified boot
 The modified boot image is written to the remapped location.
 
 ## Rooting
@@ -90,7 +79,7 @@ To go back to the stock kernel (without r/w on /system), simply reboot the phone
 ## Restoring Recovery
 Nothing got deleted, so in order to get back into recovery when pushing the volume down button on boot, only the partition table has to be restored, which can be done as root via
 
-/system/xbin/sgdisk --load-backup=/data/local/backup/TIMESTAMP_tmp/mmcblk0.gpt /dev/block/mmcblk0
+/data/local/tmp/root/sgdisk --load-backup=/data/local/tmp/backup/TIMESTAMP_mmcblk0.gpt /dev/block/mmcblk0
 
 Note: the timestamp should be from the original backup made when pushing "backup" in the app for the first time.
 
