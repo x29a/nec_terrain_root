@@ -14,8 +14,8 @@ then
     echo "/data/local/tmp/root/parted /dev/block/mmcblk0 unit B print > /data/local/tmp/backup/${TIMESTAMP}_partition_layout.txt" >> ${SCRIPT}
     echo "/data/local/tmp/root/sgdisk -p /dev/block/mmcblk0 > /data/local/tmp/backup/${TIMESTAMP}_partition_sectors.txt" >> ${SCRIPT}
     echo "/data/local/tmp/root/sgdisk --backup=/data/local/tmp/backup/${TIMESTAMP}_mmcblk0.gpt /dev/block/mmcblk0" >> ${SCRIPT}
-    echo "/system/bin/dd if=/dev/block/mmcblk0 of=/data/local/tmp/backup/${TIMESTAMP}_boot.img bs=1 skip=305659904 count=10485760" >> ${SCRIPT}
-    echo "/system/bin/dd if=/dev/block/mmcblk0 of=/data/local/tmp/backup/${TIMESTAMP}_recovery.img bs=1 skip=316669952 count=10485760" >> ${SCRIPT}
+    echo "/system/bin/dd if=/dev/block/mmcblk0 of=/data/local/tmp/backup/${TIMESTAMP}_boot.img bs=512 skip=596992 count=20480" >> ${SCRIPT}
+    echo "/system/bin/dd if=/dev/block/mmcblk0 of=/data/local/tmp/backup/${TIMESTAMP}_recovery.img bs=512 skip=618496 count=20480" >> ${SCRIPT}
     echo "/system/bin/sync" >> ${SCRIPT}
 
     # execute as root
