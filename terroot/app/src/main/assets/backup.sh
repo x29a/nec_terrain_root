@@ -16,6 +16,7 @@ then
     echo "/data/local/tmp/root/sgdisk --backup=/data/local/tmp/backup/${TIMESTAMP}_mmcblk0.gpt /dev/block/mmcblk0" >> ${SCRIPT}
     echo "/system/bin/dd if=/dev/block/mmcblk0 of=/data/local/tmp/backup/${TIMESTAMP}_boot.img bs=512 skip=596992 count=20480" >> ${SCRIPT}
     echo "/system/bin/dd if=/dev/block/mmcblk0 of=/data/local/tmp/backup/${TIMESTAMP}_recovery.img bs=512 skip=618496 count=20480" >> ${SCRIPT}
+    echo "chmod 777 /data/local/tmp/backup/*" >> ${SCRIPT}
     echo "/system/bin/sync" >> ${SCRIPT}
 
     # execute as root
