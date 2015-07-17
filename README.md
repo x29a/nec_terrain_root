@@ -1,4 +1,5 @@
-UPDATE: root is achieved! See subfolder "terroot" and http://forum.xda-developers.com/showpost.php?p=61542922&postcount=186. After this method has been tested and verified, zhe next steps are: fully open recovery, optimized kernel, nice ROM.
+## UPDATE
+root is achieved! See [Terroot](terroot/README.md) and alex-kas (https://github.com/alex-kas/nec_terrain and http://forum.xda-developers.com/showpost.php?p=61542922&postcount=186). After this method has been tested and verified, the next steps are: fully open recovery, optimized kernel, nice ROM. Feel free to chip in!
 
 ----------------------------------------------------------------------------------------------------
 
@@ -24,7 +25,7 @@ The recovery (e3) can be accessed via the following procedure:
 * Press volume-up, then volume-down to enter recovery
 * Navigate via volume-down, select via volume-up
 
-The menu entries "repair software by sdcard" and "maintenance" are locked via an unknown code, consisting of only numbers and possible 10 digits long.
+The menu entries "repair software by sdcard" and "maintenance" are locked via an ~~un~~known code, consisting of only numbers and possible 10 digits long.
 
 The code for maintenance has been found, it is based on the IMEI of the phone, which can be found under the battery. From the IMEI, the code can be constructed by combining the digits in the following way:
 
@@ -91,7 +92,7 @@ $ du -sh images/
 
 Maybe someone can do some magic and disable the NAND lock or extract information on how the update.dat file should look?
 
-Since removing unwanted applications is currently not possible, one can at least disable them. This script is inspired by a couple of scripts provided in one of the mentioned threads (http://forum.xda-developers.com/showpost.php?p=58675054&postcount=17) but it does not install XPosed framework or change other settings. Some of what the script does could also be done manually in the "Apps" menu by clicking on each app and selecting "Disable".
+Since removing unwanted applications ~~is currently~~was not possible, one can at least disable them (to permanently remove them, see [Terroot](terroot/README.md)). This script is inspired by a couple of scripts provided in one of the mentioned threads (http://forum.xda-developers.com/showpost.php?p=58675054&postcount=17) but it does not install XPosed framework or change other settings. Some of what the script does could also be done manually in the "Apps" menu by clicking on each app and selecting "Disable".
 
  Root is needed (so run "adb_install_bb_su.sh" from "temporary_root" beforehand) for the commands to switch the state to disabled, without root, the packages would just be killed. The changes (aka applications missing from menu) should be effective after a reboot.
 

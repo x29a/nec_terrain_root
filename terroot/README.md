@@ -1,7 +1,9 @@
 This app contains all the tools needed to mount /system rw, which is a precondition for a permanent root.
 
 ## DISCLAIMER 
-This app is provided as a demo for advanced users. No responsibility is taken, it might turn your phone into a brick. 
+This app is provided as a demo for advanced users. No responsibility is taken, it might turn your phone into a brick.
+
+##### with great power comes great responsibility! 
 
 /!\ YOU HAVE BEEN WARNED /!\
 
