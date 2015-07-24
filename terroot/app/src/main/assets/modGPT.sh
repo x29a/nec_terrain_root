@@ -12,7 +12,7 @@ then
     echo "#!/system/bin/sh" > ${SCRIPT}
     echo "/system/bin/mkdir -p /data/local/tmp/backup/ && chmod 777 /data/local/tmp/backup/" >> ${SCRIPT}
     echo "/data/local/tmp/root/sgdisk -d 11 /dev/block/mmcblk0" >> ${SCRIPT}
-    echo "/data/local/tmp/root/sgdisk -n 11:558000:578479 /dev/block/mmcblk0 -v" >> ${SCRIPT}
+    echo "/data/local/tmp/root/sgdisk -n 11:557056:589823 /dev/block/mmcblk0 -v" >> ${SCRIPT}
     echo "/data/local/tmp/root/sgdisk -c 11:recovery /dev/block/mmcblk0 -v" >> ${SCRIPT}
     echo "/data/local/tmp/root/sgdisk -t 11:FFFF /dev/block/mmcblk0 -v" >> ${SCRIPT}
     echo "/data/local/tmp/root/parted /dev/block/mmcblk0 unit B print > /data/local/tmp/backup/${TIMESTAMP}_new_partition_layout.txt" >> ${SCRIPT}
