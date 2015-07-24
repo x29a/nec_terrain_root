@@ -89,5 +89,36 @@ Nothing got deleted, so in order to get back into recovery when pushing the volu
 
 Note: the timestamp should be from the original backup made when pushing "backup" in the app for the first time.
 
+## Custom recovery and boot
+Thanks to Alex.Kas, there is now a [custom recovery](https://github.com/alex-kas/nec_terrain/blob/master/recovery/README.md) with ADB/root/tools/...
+
+It is very advised to install this recovery in order to be more flexible with system recovery in case anything goes wrong.
+
+Terroot uses the same partition as created in Step 3 above, so the custom boot will be lost, but that is no problem since a [custom boot](https://github.com/alex-kas/nec_terrain/blob/master/boot/README.md) image also exists which lets you remount the /system partition on the fly (no reboot needed anymore!).
+
+### Prerequisites
+At this point, the cellphone should be rooted permanently, since the new boot image needs root permissions to remount /system rw. The custom boot process needs a real external microSD card.
+
+### Copying
+Use Terroot steps "KASreco" to flash the custom recovery and "KASboot" to prepare the custom boot image (on the real external SD card).
+
+### Installation
+Reboot the phone with volume down pressed to enter the new custom recovery (green infotext on black background). At this point, start an adb shell and execute `/rbin/flash_boot.sh`. After it is finished, reboot.
+
+### Verification
+Once booted, adb shell into the device, become root (su) and check that /system is mounted ro. Then remount rw and check if writing is possible via
+
+```
+shell@android:/ $ su
+root@android:/ # mount | grep /system
+/dev/block/mmcblk0p12 /system ext4 ro,relatime,user_xattr,barrier=1,data=ordered,discard 0 0
+root@android:/ # mount -o remount,rw /system
+root@android:/ # mount | grep /system                                          
+/dev/block/mmcblk0p12 /system ext4 rw,relatime,user_xattr,barrier=1,data=ordered,discard 0 0
+root@android:/ # touch /system/foo && ls -la /system/foo
+-rw-rw-rw- root     root            0 1970-01-06 03:21 foo
+root@android:/ # rm /system/foo
+```
+
 ## Troubleshooting
 If something goes wrong, you should be always able to normally boot the phone, temporary root it and look at logfiles and the contents of /data/local/tmp. If in doubt, reboot the phone and try the whole procedure again.

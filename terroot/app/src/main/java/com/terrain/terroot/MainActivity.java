@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,6 +29,12 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Remove title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        // Remove notification bar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -104,11 +112,11 @@ public class MainActivity extends ActionBarActivity {
         log("modGPT finished");
     }
 
-    public void modBoot(View view)
+    public void recovery_boot(View view)
     {
-        log("modBoot start");
-        executeCommand("modBoot.sh");
-        log("modBoot finished");
+        log("recoveryboot start");
+        executeCommand("recovery_boot.sh");
+        log("recoveryboot finished");
     }
 
     public void su(View view)
@@ -116,6 +124,20 @@ public class MainActivity extends ActionBarActivity {
         log("su start");
         executeCommand("preparesu.sh");
         log("su finished");
+    }
+
+    public void kas_recovery(View view)
+    {
+        log("kas.recovery start");
+        executeCommand("kas_recovery.sh");
+        log("kas.recovery finished");
+    }
+
+    public void kas_boot(View view)
+    {
+        log("kas.boot start");
+        executeCommand("kas_boot.sh");
+        log("kas.boot finished");
     }
 
     public void executeCommand(String commandName)
